@@ -1,0 +1,59 @@
+﻿@model Tarea2.Models.AUTO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AUTO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PATENTE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PATENTE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ANO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ANO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COLOR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COLOR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OBSERVACION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OBSERVACION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MODELO.DESCRIPCION_MODELO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MODELO.DESCRIPCION_MODELO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_AUTO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

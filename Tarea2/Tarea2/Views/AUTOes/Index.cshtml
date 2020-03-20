@@ -1,0 +1,126 @@
+﻿@model IEnumerable<Tarea2.Models.AUTO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<!-- Cuando se cargue la ventana, si el select de años existe, le da a cada opcion del select como valor el texto con el cual se inicia, el texto es el año de cada auto encontrado-->
+<script>
+    window.onload = function () {
+        if (document.getElementById("ANIOS")) {
+            let selectAnios = document.getElementById("ANIOS");
+            let options = selectAnios.childNodes;
+            options.forEach(function (o) {
+
+                o.value = parseInt(o.innerHTML);
+
+                if (@ViewBag.ANO) {
+                    if (@ViewBag.ANO == o.value) {
+                        o.selected = true;
+                    }
+                }
+ 
+            });
+            
+        }
+    }
+</script>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm())
+{ 
+    @Html.AntiForgeryToken()
+   <div class="row">
+       <div class="col-md-10">
+           <div class="form-group">
+               <div class="col-md-2">
+                   <label>MARCA:</label>
+               </div>
+               <div class="col-md-4">
+                   @Html.DropDownList("ID_MARCA", null, htmlAttributes: new { @class = "form-control" })
+               </div>
+           </div>
+           <div class="form-group">
+               <div class="col-md-2">
+                   <label>Años:</label>
+               </div>
+               <div class="col-md-4">
+                   @Html.DropDownList("ANIOS", null, htmlAttributes: new { @class = "form-control" })
+               </div>
+           </div>
+           <div class="form-group">
+               <div class="col-md-2">
+                   <label>Patente:</label>
+               </div>
+               <div class="col-md-4">
+                   <input type="text" name="PATENTE" value="@ViewBag.PATENTE" placeholder="Patente" />
+               </div>
+           </div>
+       </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Buscar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+<table class="table" style="margin-top: 10px; padding-top20px;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PATENTE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ANO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COLOR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OBSERVACION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MODELO.DESCRIPCION_MODELO)
+        </th>
+        <th>MARCA</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PATENTE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ANO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.COLOR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OBSERVACION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MODELO.DESCRIPCION_MODELO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MODELO.MARCA.DESCRIPCION)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID_AUTO }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID_AUTO }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID_AUTO })
+            </td>
+        </tr>
+    }
+
+</table>

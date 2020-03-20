@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="27188511b2d44f498ce533876bf47058" Name="Diagram1">
+        <EntityTypeShape EntityType="testModel.AUTO" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.CARGOS" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.MARCA" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.MODELO" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.Persona" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.TRABAJADOR" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="testModel.FK__AUTO__ID_MODELO__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="testModel.FK__TRABAJADO__ID_CA__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="testModel.FK__MODELO__ID_MARCA__3E52440B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
