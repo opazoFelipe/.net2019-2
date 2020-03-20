@@ -1,0 +1,22 @@
+C:\Users\felipe\source\repos\clase2\tarea1\tarea1\bin\Debug\netcoreapp3.1\tarea1.exe
+C:\Users\felipe\source\repos\clase2\tarea1\tarea1\bin\Debug\netcoreapp3.1\tarea1.deps.json
+C:\Users\felipe\source\repos\clase2\tarea1\tarea1\bin\Debug\netcoreapp3.1\tarea1.runtimeconfig.json
+C:\Users\felipe\source\repos\clase2\tarea1\tarea1\bin\Debug\netcoreapp3.1\tarea1.runtimeconfig.dev.json
+C:\Users\felipe\source\repos\clase2\tarea1\tarea1\bin\Debug\netcoreapp3.1\tarea1.dll
+C:\Users\felipe\source\repos\clase2\tarea1\tarea1\bin\Debug\netcoreapp3.1\tarea1.pdb
+C:\Users\felipe\source\repos\clase2\tarea1\tarea1\obj\Debug\netcoreapp3.1\tarea1.csprojAssemblyReference.cache
+C:\Users\felipe\source\repos\clase2\tarea1\tarea1\obj\Debug\netcoreapp3.1\tarea1.AssemblyInfoInputs.cache
+C:\Users\felipe\source\repos\clase2\tarea1\tarea1\obj\Debug\netcoreapp3.1\tarea1.AssemblyInfo.cs
+C:\Users\felipe\source\repos\clase2\tarea1\tarea1\obj\Debug\netcoreapp3.1\tarea1.dll
+C:\Users\felipe\source\repos\clase2\tarea1\tarea1\obj\Debug\netcoreapp3.1\tarea1.pdb
+C:\Users\felipe\Desktop\.net\Tarea 1\tarea1\tarea1\bin\Debug\netcoreapp3.1\tarea1.exe
+C:\Users\felipe\Desktop\.net\Tarea 1\tarea1\tarea1\bin\Debug\netcoreapp3.1\tarea1.deps.json
+C:\Users\felipe\Desktop\.net\Tarea 1\tarea1\tarea1\bin\Debug\netcoreapp3.1\tarea1.runtimeconfig.json
+C:\Users\felipe\Desktop\.net\Tarea 1\tarea1\tarea1\bin\Debug\netcoreapp3.1\tarea1.runtimeconfig.dev.json
+C:\Users\felipe\Desktop\.net\Tarea 1\tarea1\tarea1\bin\Debug\netcoreapp3.1\tarea1.dll
+C:\Users\felipe\Desktop\.net\Tarea 1\tarea1\tarea1\bin\Debug\netcoreapp3.1\tarea1.pdb
+C:\Users\felipe\Desktop\.net\Tarea 1\tarea1\tarea1\obj\Debug\netcoreapp3.1\tarea1.csprojAssemblyReference.cache
+C:\Users\felipe\Desktop\.net\Tarea 1\tarea1\tarea1\obj\Debug\netcoreapp3.1\tarea1.AssemblyInfoInputs.cache
+C:\Users\felipe\Desktop\.net\Tarea 1\tarea1\tarea1\obj\Debug\netcoreapp3.1\tarea1.AssemblyInfo.cs
+C:\Users\felipe\Desktop\.net\Tarea 1\tarea1\tarea1\obj\Debug\netcoreapp3.1\tarea1.dll
+C:\Users\felipe\Desktop\.net\Tarea 1\tarea1\tarea1\obj\Debug\netcoreapp3.1\tarea1.pdb
