@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Taller4EModelStoreContainer" CdmEntityContainer="Taller4EEntities">
+    <EntitySetMapping Name="AUTO">
+      <EntityTypeMapping TypeName="Taller4EModel.AUTO">
+        <MappingFragment StoreEntitySet="AUTO">
+          <ScalarProperty Name="ID_AUTO" ColumnName="ID_AUTO" />
+          <ScalarProperty Name="ID_MODELO" ColumnName="ID_MODELO" />
+          <ScalarProperty Name="PATENTE" ColumnName="PATENTE" />
+          <ScalarProperty Name="ANO" ColumnName="ANO" />
+          <ScalarProperty Name="COLOR" ColumnName="COLOR" />
+          <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INGRESA_VEHICULO">
+      <EntityTypeMapping TypeName="Taller4EModel.INGRESA_VEHICULO">
+        <MappingFragment StoreEntitySet="INGRESA_VEHICULO">
+          <ScalarProperty Name="INGR_ID" ColumnName="INGR_ID" />
+          <ScalarProperty Name="ID_AUTO" ColumnName="ID_AUTO" />
+          <ScalarProperty Name="INGR_FECHA_INGRESO" ColumnName="INGR_FECHA_INGRESO" />
+          <ScalarProperty Name="INGR_RUT_CLIENTE" ColumnName="INGR_RUT_CLIENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SERVICIOS">
+      <EntityTypeMapping TypeName="Taller4EModel.SERVICIOS">
+        <MappingFragment StoreEntitySet="SERVICIOS">
+          <ScalarProperty Name="SERVI_ID" ColumnName="SERVI_ID" />
+          <ScalarProperty Name="SERVI_DESCRIPCION" ColumnName="SERVI_DESCRIPCION" />
+          <ScalarProperty Name="SERVI_VALOR" ColumnName="SERVI_VALOR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AUTO_SERVICIOS" TypeName="Taller4EModel.AUTO_SERVICIOS" StoreEntitySet="AUTO_SERVICIOS">
+      <EndProperty Name="INGRESA_VEHICULO">
+        <ScalarProperty Name="INGR_ID" ColumnName="INGR_ID" />
+      </EndProperty>
+      <EndProperty Name="SERVICIOS">
+        <ScalarProperty Name="SERVI_ID" ColumnName="SERVI_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

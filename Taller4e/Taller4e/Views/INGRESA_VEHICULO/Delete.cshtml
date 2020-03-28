@@ -1,0 +1,48 @@
+﻿@model Taller4e.Models.INGRESA_VEHICULO
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>INGRESA_VEHICULO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.INGR_FECHA_INGRESO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INGR_FECHA_INGRESO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INGR_RUT_CLIENTE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INGR_RUT_CLIENTE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AUTO.PATENTE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AUTO.PATENTE)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

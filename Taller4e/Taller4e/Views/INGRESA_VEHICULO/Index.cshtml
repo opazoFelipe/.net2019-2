@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Taller4e.Models.INGRESA_VEHICULO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table text-center">
+    <tr>
+        <th>
+            RUT
+        </th>
+        <th>
+            PATENTE
+        </th>
+        <th>
+            FECHA INGRESO
+        </th>
+        <th>
+            VALOR TOTAL SERVICIOS
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in ViewData["valoresServicios"] as List<Taller4e.Models.valorServicios>)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.INGR_RUT_CLIENTE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AUTO.PATENTE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.INGR_FECHA_INGRESO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valorServ)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.INGR_ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.INGR_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.INGR_ID })
+            </td>
+        </tr>
+
+    }
+
+</table>

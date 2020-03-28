@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Taller4EModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AUTO">
+    <Key>
+      <PropertyRef Name="ID_AUTO" />
+    </Key>
+    <Property Name="ID_AUTO" Type="Int32" Nullable="false" />
+    <Property Name="ID_MODELO" Type="Int32" Nullable="false" />
+    <Property Name="PATENTE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ANO" Type="Int32" />
+    <Property Name="COLOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OBSERVACION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="INGRESA_VEHICULO" Relationship="Self.FK__INGRESA_V__ID_AU__3A81B327" FromRole="AUTO" ToRole="INGRESA_VEHICULO" />
+  </EntityType>
+  <EntityType Name="INGRESA_VEHICULO">
+    <Key>
+      <PropertyRef Name="INGR_ID" />
+    </Key>
+    <Property Name="INGR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_AUTO" Type="Int32" />
+    <Property Name="INGR_FECHA_INGRESO" Type="DateTime" Precision="3" />
+    <Property Name="INGR_RUT_CLIENTE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AUTO" Relationship="Self.FK__INGRESA_V__ID_AU__3A81B327" FromRole="INGRESA_VEHICULO" ToRole="AUTO" />
+    <NavigationProperty Name="SERVICIOS" Relationship="Self.AUTO_SERVICIOS" FromRole="INGRESA_VEHICULO" ToRole="SERVICIOS" />
+  </EntityType>
+  <EntityType Name="SERVICIOS">
+    <Key>
+      <PropertyRef Name="SERVI_ID" />
+    </Key>
+    <Property Name="SERVI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SERVI_DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SERVI_VALOR" Type="Int32" />
+    <NavigationProperty Name="INGRESA_VEHICULO" Relationship="Self.AUTO_SERVICIOS" FromRole="SERVICIOS" ToRole="INGRESA_VEHICULO" />
+  </EntityType>
+  <Association Name="FK__INGRESA_V__ID_AU__3A81B327">
+    <End Role="AUTO" Type="Self.AUTO" Multiplicity="0..1" />
+    <End Role="INGRESA_VEHICULO" Type="Self.INGRESA_VEHICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AUTO">
+        <PropertyRef Name="ID_AUTO" />
+      </Principal>
+      <Dependent Role="INGRESA_VEHICULO">
+        <PropertyRef Name="ID_AUTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AUTO_SERVICIOS">
+    <End Role="INGRESA_VEHICULO" Type="Self.INGRESA_VEHICULO" Multiplicity="*" />
+    <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="Taller4EEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AUTO" EntityType="Self.AUTO" />
+    <EntitySet Name="INGRESA_VEHICULO" EntityType="Self.INGRESA_VEHICULO" />
+    <EntitySet Name="SERVICIOS" EntityType="Self.SERVICIOS" />
+    <AssociationSet Name="FK__INGRESA_V__ID_AU__3A81B327" Association="Self.FK__INGRESA_V__ID_AU__3A81B327">
+      <End Role="AUTO" EntitySet="AUTO" />
+      <End Role="INGRESA_VEHICULO" EntitySet="INGRESA_VEHICULO" />
+    </AssociationSet>
+    <AssociationSet Name="AUTO_SERVICIOS" Association="Self.AUTO_SERVICIOS">
+      <End Role="INGRESA_VEHICULO" EntitySet="INGRESA_VEHICULO" />
+      <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

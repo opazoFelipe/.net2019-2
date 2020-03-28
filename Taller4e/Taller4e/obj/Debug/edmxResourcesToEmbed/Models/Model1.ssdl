@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Taller4EModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AUTO">
+    <Key>
+      <PropertyRef Name="ID_AUTO" />
+    </Key>
+    <Property Name="ID_AUTO" Type="int" Nullable="false" />
+    <Property Name="ID_MODELO" Type="int" Nullable="false" />
+    <Property Name="PATENTE" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="ANO" Type="int" />
+    <Property Name="COLOR" Type="varchar" MaxLength="50" />
+    <Property Name="OBSERVACION" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="AUTO_SERVICIOS">
+    <Key>
+      <PropertyRef Name="SERVI_ID" />
+      <PropertyRef Name="INGR_ID" />
+    </Key>
+    <Property Name="SERVI_ID" Type="int" Nullable="false" />
+    <Property Name="INGR_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="INGRESA_VEHICULO">
+    <Key>
+      <PropertyRef Name="INGR_ID" />
+    </Key>
+    <Property Name="INGR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_AUTO" Type="int" />
+    <Property Name="INGR_FECHA_INGRESO" Type="datetime" />
+    <Property Name="INGR_RUT_CLIENTE" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="SERVICIOS">
+    <Key>
+      <PropertyRef Name="SERVI_ID" />
+    </Key>
+    <Property Name="SERVI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SERVI_DESCRIPCION" Type="varchar" MaxLength="100" />
+    <Property Name="SERVI_VALOR" Type="int" />
+  </EntityType>
+  <Association Name="FK__AUTO_SERV__INGR___3E52440B">
+    <End Role="INGRESA_VEHICULO" Type="Self.INGRESA_VEHICULO" Multiplicity="1" />
+    <End Role="AUTO_SERVICIOS" Type="Self.AUTO_SERVICIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INGRESA_VEHICULO">
+        <PropertyRef Name="INGR_ID" />
+      </Principal>
+      <Dependent Role="AUTO_SERVICIOS">
+        <PropertyRef Name="INGR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AUTO_SERV__SERVI__3D5E1FD2">
+    <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="1" />
+    <End Role="AUTO_SERVICIOS" Type="Self.AUTO_SERVICIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SERVICIOS">
+        <PropertyRef Name="SERVI_ID" />
+      </Principal>
+      <Dependent Role="AUTO_SERVICIOS">
+        <PropertyRef Name="SERVI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__INGRESA_V__ID_AU__3A81B327">
+    <End Role="AUTO" Type="Self.AUTO" Multiplicity="0..1" />
+    <End Role="INGRESA_VEHICULO" Type="Self.INGRESA_VEHICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AUTO">
+        <PropertyRef Name="ID_AUTO" />
+      </Principal>
+      <Dependent Role="INGRESA_VEHICULO">
+        <PropertyRef Name="ID_AUTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Taller4EModelStoreContainer">
+    <EntitySet Name="AUTO" EntityType="Self.AUTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AUTO_SERVICIOS" EntityType="Self.AUTO_SERVICIOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="INGRESA_VEHICULO" EntityType="Self.INGRESA_VEHICULO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SERVICIOS" EntityType="Self.SERVICIOS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__AUTO_SERV__INGR___3E52440B" Association="Self.FK__AUTO_SERV__INGR___3E52440B">
+      <End Role="INGRESA_VEHICULO" EntitySet="INGRESA_VEHICULO" />
+      <End Role="AUTO_SERVICIOS" EntitySet="AUTO_SERVICIOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AUTO_SERV__SERVI__3D5E1FD2" Association="Self.FK__AUTO_SERV__SERVI__3D5E1FD2">
+      <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+      <End Role="AUTO_SERVICIOS" EntitySet="AUTO_SERVICIOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__INGRESA_V__ID_AU__3A81B327" Association="Self.FK__INGRESA_V__ID_AU__3A81B327">
+      <End Role="AUTO" EntitySet="AUTO" />
+      <End Role="INGRESA_VEHICULO" EntitySet="INGRESA_VEHICULO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
